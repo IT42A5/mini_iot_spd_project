@@ -28,4 +28,4 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Build Docker image
-      run: docker build . -t marvkos/sdp-flask
+      run: docker build . -t IT42A5/mini_iot_spd_project
