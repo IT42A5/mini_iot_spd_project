@@ -1,12 +1,13 @@
 from flask import Flask, jsonify
-import os
 import psutil
+
 
 def get_cpu_temperature():
     try:
-        return 20;  # Some fake data
+        return 20  # Some fake data
     except FileNotFoundError:
         return None
+
 
 def get_disk_usage():
     disk = psutil.disk_usage('/')
@@ -16,6 +17,7 @@ def get_disk_usage():
         "free": disk.free,
         "percent": disk.percent
     }
+
 
 def create_app():
     app = Flask(__name__)
