@@ -67,7 +67,7 @@ jobs:
     - name: Build Docker image
       run: |
         docker buildx create --use
-        docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest --output type=docker
+        docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest --output type=docker .
 
   push:
     needs: build
