@@ -58,7 +58,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build Docker image
-      run: docker build . -t ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest
+      run: docker build . -t ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest --platform linux/amd64,linux/arm64
 
     - name: Log in to GitHub Container Registry
       run: echo "${{ secrets.GIT_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GIT_USERNAME }} --password-stdin
