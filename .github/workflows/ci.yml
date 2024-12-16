@@ -69,7 +69,7 @@ jobs:
         docker buildx create --use
         docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest --push .
 
-   push:
+  push:
     needs: build
     runs-on: ubuntu-latest
 
