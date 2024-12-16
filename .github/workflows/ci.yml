@@ -58,4 +58,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build Docker image
-      run: docker build . -t SDP/mini_iot_spd_project
+      run: docker build . -t ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest
+
+    - name: Log in to GitHub Container Registry
+      run: echo "${{ secrets.GIT_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GIT_USERNAME }} --password-stdin
+
+    - name: Push Docker image to GitHub Container Registry
+      run: docker push ghcr.io/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_REPO }}:latest
